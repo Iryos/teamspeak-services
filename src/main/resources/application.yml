@@ -1,0 +1,8 @@
+teamspeak:
+  host: ${TEAMSPEAK_HOST:-}
+  queryUsername: ${TEAMSPEAK_QUERY_USERNAME:serveradmin}
+  queryPassword: ${TEAMSPEAK_QUERY_PASSWORD:-}
+  nickname: ${TEAMSPEAK_NICKNAME:SpacerCorrector}
+
+overwolf:
+  checkInterval: ${OVERWOLF_CHECK_INTERVAL:600}
