@@ -20,16 +20,29 @@ class OverwolfSpacer() {
 
     fun init(api: TS3Api) {
         ts3Api = api
-        val EventAdapter = object : TS3EventAdapter() {
+        var spacerGroupId: Int = 0
 
-            override fun onClientJoin(e: ClientJoinEvent) {
-                if (e.clientNickname != "serveradmin" || e.clientNickname != "Unknown") {
-                    logger.info(e.clientNickname)
-                    logger.info(e.toString())
-                }
+        ts3Api?.serverGroups?.forEach {
+            if (it.name == "Overwolf Spacer") {
+                spacerGroupId = it.id
             }
         }
 
+        val EventAdapter = object : TS3EventAdapter() {
+
+            override fun onClientJoin(event: ClientJoinEvent) {
+                if (event.clientNickname != "serveradmin" || event.clientNickname != "Unknown") {
+                    try {
+                        ts3Api?.addClientToServerGroup(spacerGroupId, event.clientDatabaseId)
+                    } catch (e: Exception) {
+                        if (!e.toString().contains("duplicate entry") && !e.toString().contains("invalid clientID")) {
+                            logger.error("User: ${event.clientNickname} already in Group 'Overwolf Spacer'")
+                            logger.error(e.toString())
+                        }
+                    }
+                }
+            }
+        }
         ts3Api?.registerAllEvents()
         ts3Api?.addTS3Listeners(EventAdapter)
     }
