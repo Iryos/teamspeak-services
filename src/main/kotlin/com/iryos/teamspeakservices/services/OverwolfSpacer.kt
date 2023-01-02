@@ -79,7 +79,7 @@ class OverwolfSpacer() {
                     try {
                         ts3Api?.removeClientFromServerGroup(spacerGroupId, it.databaseId)
                     } catch (e: Exception) {
-                        if (!e.toString().contains("duplicate entry") && !e.toString().contains("invalid clientID")) {
+                        if (!e.toString().contains("empty result set") && !e.toString().contains("invalid clientID")) {
                             logger.error("Cannot remove User: ${it.nickname} from Group 'Overwolf Spacer'")
                             logger.error(e.toString())
                         }
