@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling
 @EnableConfigurationProperties(
     TeamspeakProperties::class
 )
-
 @EnableScheduling
 @SpringBootApplication
 class TeamspeakServicesApplication
