@@ -12,7 +12,6 @@ import kotlin.system.exitProcess
 
 @Component
 class Runner : CommandLineRunner {
-
     private val logger = LoggerFactory.getLogger(Runner::class.java)
 
     @Autowired
