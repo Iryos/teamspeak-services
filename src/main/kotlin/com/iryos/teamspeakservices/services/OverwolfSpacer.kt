@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component
 
 @Component
 class OverwolfSpacer() {
-
     @Autowired
     private val teamspeakProperties: TeamspeakProperties? = null
 
@@ -28,23 +27,23 @@ class OverwolfSpacer() {
             }
         }
 
-        val EventAdapter = object : TS3EventAdapter() {
-
-            override fun onClientJoin(event: ClientJoinEvent) {
-                if (event.clientNickname != "serveradmin" || event.clientNickname != "Unknown") {
-                    try {
-                        ts3Api?.addClientToServerGroup(spacerGroupId, event.clientDatabaseId)
-                    } catch (e: Exception) {
-                        if (!e.toString().contains("duplicate entry") && !e.toString().contains("invalid clientID")) {
-                            logger.error("User: ${event.clientNickname} already in Group 'Overwolf Spacer'")
-                            logger.error(e.toString())
+        val eventAdapter =
+            object : TS3EventAdapter() {
+                override fun onClientJoin(event: ClientJoinEvent) {
+                    if (event.clientNickname != "serveradmin" || event.clientNickname != "Unknown") {
+                        try {
+                            ts3Api?.addClientToServerGroup(spacerGroupId, event.clientDatabaseId)
+                        } catch (e: Exception) {
+                            if (!e.toString().contains("duplicate entry") && !e.toString().contains("invalid clientID")) {
+                                logger.error("User: ${event.clientNickname} already in Group 'Overwolf Spacer'")
+                                logger.error(e.toString())
+                            }
                         }
                     }
                 }
             }
-        }
         ts3Api?.registerAllEvents()
-        ts3Api?.addTS3Listeners(EventAdapter)
+        ts3Api?.addTS3Listeners(eventAdapter)
     }
 
     @Scheduled(fixedDelayString = "\${overwolf.checkInterval}" + "000")
