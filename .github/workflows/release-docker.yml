@@ -1,13 +1,13 @@
-name: Build
+name: Docker-Release
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types:
+      - released
 
 jobs:
   build:
-    name: "Build Project"
+    name: "Build and Docker push"
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +23,13 @@ jobs:
         uses: gradle/gradle-build-action@v2
       - name: Execute Gradle build
         run: ./gradlew build
+      - name: docker_login
+        uses: docker/login-action@v2.0.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: JiB Build
+        run: ./gradlew jibDockerBuild
+      - name: Docker push
+        run: docker push ghcr.io/iryos/teamspeak-services
