@@ -1,1 +1,1 @@
-extra["projectVersion"] = "1.0.4"
+extra["projectVersion"] = "1.0.5"
