@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("org.springframework.boot") version "3.4.4"
     id("io.spring.dependency-management") version "1.1.7"
@@ -57,4 +55,8 @@ jib {
         image = "ghcr.io/iryos/teamspeak-services"
         tags = setOf("latest")
     }
+}
+
+ktlint {
+    version.set("1.5.0")
 }

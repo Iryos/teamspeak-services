@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 
 @Component
-class OverwolfSpacer() {
+class OverwolfSpacer {
     @Autowired
     private val teamspeakProperties: TeamspeakProperties? = null
 

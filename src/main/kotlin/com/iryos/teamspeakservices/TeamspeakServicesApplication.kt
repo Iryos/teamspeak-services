@@ -18,4 +18,9 @@ fun main(args: Array<String>) {
 }
 
 @ConfigurationProperties("teamspeak")
-data class TeamspeakProperties(val host: String, val queryUsername: String, val queryPassword: String, val nickname: String)
+data class TeamspeakProperties(
+    val host: String,
+    val queryUsername: String,
+    val queryPassword: String,
+    val nickname: String,
+)
