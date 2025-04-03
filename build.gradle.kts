@@ -1,18 +1,23 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.4.0"
-    id("io.spring.dependency-management") version "1.1.6"
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
-    id("com.google.cloud.tools.jib") version "3.4.2"
-    kotlin("jvm") version "1.9.22"
-    kotlin("plugin.spring") version "2.0.0"
+    id("org.springframework.boot") version "3.4.4"
+    id("io.spring.dependency-management") version "1.1.7"
+    id("org.jlleitschuh.gradle.ktlint") version "12.2.0"
+    id("com.google.cloud.tools.jib") version "3.4.5"
+    kotlin("jvm") version "2.1.20"
+    kotlin("plugin.spring") version "2.1.20"
 }
 
 val projectVersion: String by extra
 
 group = "com.iryos"
-java.sourceCompatibility = JavaVersion.VERSION_17
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 configurations {
     compileOnly {
@@ -25,19 +30,18 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter:3.3.2")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.20")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
+    implementation("org.springframework.boot:spring-boot-starter:3.4.4")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.20")
     implementation("com.github.theholywaffle:teamspeak3-api:1.3.1")
-    developmentOnly("org.springframework.boot:spring-boot-devtools:3.4.0")
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.2.2")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.0")
+    developmentOnly("org.springframework.boot:spring-boot-devtools:3.4.4")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.4.4")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict")
     }
 }
 
