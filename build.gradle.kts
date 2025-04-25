@@ -34,7 +34,7 @@ dependencies {
     implementation("com.github.theholywaffle:teamspeak3-api:1.3.1")
     developmentOnly("org.springframework.boot:spring-boot-devtools:3.4.4")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.4.4")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.5")
 }
 
 kotlin {
