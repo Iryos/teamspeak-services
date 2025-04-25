@@ -32,7 +32,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.20")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.20")
     implementation("com.github.theholywaffle:teamspeak3-api:1.3.1")
-    developmentOnly("org.springframework.boot:spring-boot-devtools:3.4.4")
+    developmentOnly("org.springframework.boot:spring-boot-devtools:3.4.5")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.4.4")
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
 }
