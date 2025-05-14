@@ -29,7 +29,7 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter:3.4.5")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.20")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.21")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.20")
     implementation("com.github.theholywaffle:teamspeak3-api:1.3.1")
     developmentOnly("org.springframework.boot:spring-boot-devtools:3.4.5")
