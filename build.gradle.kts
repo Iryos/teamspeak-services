@@ -1,5 +1,5 @@
 plugins {
-    id("org.springframework.boot") version "3.4.5"
+    id("org.springframework.boot") version "3.5.2"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.jlleitschuh.gradle.ktlint") version "12.2.0"
     id("com.google.cloud.tools.jib") version "3.4.5"
@@ -28,13 +28,13 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter:3.4.5")
+    implementation("org.springframework.boot:spring-boot-starter:3.5.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.20")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.20")
     implementation("com.github.theholywaffle:teamspeak3-api:1.3.1")
-    developmentOnly("org.springframework.boot:spring-boot-devtools:3.4.5")
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.4.5")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.5")
+    developmentOnly("org.springframework.boot:spring-boot-devtools:3.5.2")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.5.2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.5.2")
 }
 
 kotlin {
