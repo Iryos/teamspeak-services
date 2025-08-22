@@ -4,7 +4,7 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "12.2.0"
     id("com.google.cloud.tools.jib") version "3.4.5"
     kotlin("jvm") version "2.1.20"
-    kotlin("plugin.spring") version "2.1.20"
+    kotlin("plugin.spring") version "2.2.10"
 }
 
 val projectVersion: String by extra
