@@ -1,7 +1,7 @@
 plugins {
     id("org.springframework.boot") version "3.4.5"
     id("io.spring.dependency-management") version "1.1.7"
-    id("org.jlleitschuh.gradle.ktlint") version "12.2.0"
+    id("org.jlleitschuh.gradle.ktlint") version "13.1.0"
     id("com.google.cloud.tools.jib") version "3.4.5"
     kotlin("jvm") version "2.2.10"
     kotlin("plugin.spring") version "2.2.10"
